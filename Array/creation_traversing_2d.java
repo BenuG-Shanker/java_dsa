@@ -1,4 +1,4 @@
-// class is about for creating and traversing the stored date thoroughly in an 2d Array
+// class is about for creating and traversing the stored data thoroughly in an 2d Array
 package Array;
 import java.util.*;
 class creation_traversing_2d{
