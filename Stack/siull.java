@@ -1,3 +1,4 @@
+// class is about for implemention of the push operation, pop operation, peek value, isEmpty, isFull, stack size, and display of the stack implemented using linked list i.e., siull
 package Stack;
 import java.util.*;
 class siull{

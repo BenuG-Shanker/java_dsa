@@ -1,3 +1,4 @@
+// class is about for implemention of the push operation, pop operation, peek value, isEmpty, isFull, stack size, and display of the stack implemented using arrays i.e., siua
 package Stack;
 import java.util.*;
 class siua{
