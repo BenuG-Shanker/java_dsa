@@ -91,13 +91,13 @@ class qiua{
                 // checking queue is empty
                 case 3:
                     boolean empty = q.isEmpty();
-                    System.out.print("Queue is : " + empty);
+                    System.out.print("Queue is empty : " + empty);
                     System.out.println();
                     break;
                 // checking queue is empty
                 case 4:
                     boolean full = q.isFull();
-                    System.out.print("Queue is : " + full);
+                    System.out.print("Queue is  full : " + full);
                     System.out.println();
                     break;
                 // getting front value of a queue
