@@ -1,67 +1,80 @@
-package Stacks;
+package Stack;
 import java.util.*;
-class Main{
+class siull{
+    private Node top;
+    private int cap;
     private int n;
-    private int top;
-    private int[] a;
-    Main(int size){
-        n = size;
-        top = -1;
-        a = new int[n];
+    public static class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+    public siull(int size){
+        top = null;
+        cap = size;
+        n = 0;
+    }
+    public boolean isEmpty(){
+        return n == 0;
+    }
+    public boolean isFull(){
+        return n == cap;
     }
     public void push(int data){
-        if(top == n-1){
-            System.out.print("Stack is Overflowed, cannot push " + data);
+        if(isFull()){
+            System.out.print("Stack is Overflow, cannot push " + data);
             return;
         }
-        top = top + 1;
-        a[top] = data;
+        Node new_node = new Node(data);
+        new_node.next = top;
+        top = new_node;
+        n = n + 1;
         System.out.print("Pushed " + data + " onto the stack.");
     }
     public int pop(){
-        if(top == -1){
-            System.out.print("Stack is Underflowed, cannot pop.");
+        if(isEmpty()){
+            System.out.print("Stack is Underflow, cannot pop.");
             return -1;
         }
-        int pop_data = a[top];
-        top = top - 1;
+        int pop_data = top.data;
+        top = top.next;
+        n = n - 1;
         System.out.print("Popped " + pop_data + " from the stack.");
         return pop_data;
     }
     public int peek(){
-        if(top == -1){
-            System.out.print("Stack is empty.");
+        if(isEmpty()){
+            System.out.print("Stack is Empty.");
             System.out.println();
             return -1;
         }
-        return a[top];
-    }
-    public boolean isEmpty(){
-        return top == -1;
-    }
-    public boolean isFull(){
-        return top == n-1;
+        return top.data;
     }
     public int size(){
-        return top + 1;
+        return n;
     }
     public void display(){
-        if(top == -1){
-            System.out.print("Stack is empty.");
+        if(isEmpty()){
+            System.out.print("Stack is Empty.");
             System.out.println();
             return;
         }
         System.out.print("Stack : ");
-        for(int i=top; i>=0; i--){
-            System.out.print(a[i] + " ");
+        Node temp = top;
+        while(temp != null){
+            System.out.print(temp.data + " ");
+            temp = temp.next;
         }
         System.out.println();
     }
     public static void main(String[] args){
         Scanner read = new Scanner(System.in);
-        System.out.print("Stack Size : ");
+        System.out.print("Stack size : ");
         int size = read.nextInt();
-        Main s = new Main(size);
+        siull s = new siull(size);
         while(true){
             System.out.print("Operation Case : ");
             int p = read.nextInt();
@@ -74,7 +87,7 @@ class Main{
                     System.out.println();
                     s.display();
                     break;
-                // popping from the stack
+                // popping from a stack
                 case 2:
                     s.pop();
                     System.out.println();
@@ -86,13 +99,13 @@ class Main{
                     System.out.print("Top element of a stack is : " + peek);
                     System.out.println();
                     break;
-                // check if stack is empty
+                // check if status is empty
                 case 4:
                     boolean empty = s.isEmpty();
                     System.out.print("Is stack is empty : " + empty);
                     System.out.println();
                     break;
-                // check if stack is full
+                // check if status is full
                 case 5:
                     boolean full = s.isFull();
                     System.out.print("Is stack is full : " + full);
