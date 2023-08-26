@@ -1,4 +1,4 @@
-// class is about for implemention of the binary tree and display using three types as pre order, in order, post order on the binary tree implemented using arrays i.e., btiua
+// class is about for implemention of the binary tree and display using three types of traversals as pre order, in order, post order on the binary tree implemented using arrays i.e., btiua
 package BinaryTree;
 import java.util.*;
 class btiua{
