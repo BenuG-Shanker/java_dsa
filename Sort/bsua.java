@@ -1,7 +1,7 @@
-// class is about for implemention of the bubble sort implementation on the arrays i.e., bs
+// class is about for implemention of the bubble sort implementation on the arrays i.e., bsua
 package Sort;
 import java.util.*;
-class bs{
+class bsua{
     public static void main(String[] args){
         Scanner read = new Scanner(System.in);
         System.out.print("Size : ");
