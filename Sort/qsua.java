@@ -14,7 +14,7 @@ class qsua{
                 pindex = pindex + 1;
                 temp = a[pindex];
                 a[pindex] = a[i];
-                a[i] = 
+                a[i] = temp;
             }
         }
         pindex = pindex + 1;
