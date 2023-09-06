@@ -123,6 +123,7 @@ class siull{
                     s.display();
                     break;
                 default:
+                    read.close();
                     System.exit(0);
             }
         }
