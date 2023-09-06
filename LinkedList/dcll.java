@@ -24,6 +24,8 @@ class dcll{
             tail = new_node;
             tail.next = head;
             head.prev = tail;
+            new_node.next = new_node;
+            new_node.prev = new_node;
         }
     }
     public void insert(){
