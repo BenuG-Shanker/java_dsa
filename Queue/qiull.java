@@ -142,6 +142,7 @@ class qiull{
                     q.display();
                     break;
                 default:
+                    read.close();
                     System.exit(0);
             }
         }

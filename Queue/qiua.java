@@ -123,6 +123,7 @@ class qiua{
                     q.display();
                     break;
                 default:
+                    read.close();
                     System.exit(0);
             }
         }
