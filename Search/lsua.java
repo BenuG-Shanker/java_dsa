@@ -1,7 +1,7 @@
 // class is about for implemention of the linear search implementation on the arrays i.e., lsua
 package Search;
 import java.util.*;
-class Main{
+class lsua{
 	public static void main(String[] args){
 		Scanner read = new Scanner(System.in);
         System.out.print("Size : ");
