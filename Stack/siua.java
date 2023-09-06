@@ -110,6 +110,7 @@ class siua{
                     s.display();
                     break;
                 default:
+                    read.close();
                     System.exit(0);
             }
         }
