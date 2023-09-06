@@ -4,6 +4,7 @@ import java.util.*;
 class btiull{
     // declaring the root node pointer globally
     private Node root;
+    private Scanner read;   // making the read as global object for the main
     class Node{
         int data;
         Node left;
@@ -14,8 +15,10 @@ class btiull{
             this.right = null;
         }
     }
+    btiull(){
+        read = new Scanner(System.in); // creating the instance of the read in the main method constructor
+    }
     Node create(){
-        Scanner read = new Scanner(System.in);
         Node root = null;
         System.out.print("Data : ");
         int data = read.nextInt();
@@ -87,6 +90,7 @@ class btiull{
                     break;
                 // switch breaks when other number is enterred except the provided case numbers
                 default:
+                    read.close();
                     System.exit(0);
             }
         }
