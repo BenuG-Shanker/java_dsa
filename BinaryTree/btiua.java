@@ -5,12 +5,13 @@ class btiua{
     private int[] a;
     // globally stores the size of an array a getting from the Main function as size
     private int n;
+    private Scanner read;   // making the read as global object for the main
     btiua(int size){
         n = size;
         a = new int[size];
+        read = new Scanner(System.in); // creating the instance of the read in the main method constructor
     }
     public void create(){
-        Scanner read = new Scanner(System.in);
         System.out.print("Data : ");
         for(int i=0; i<n; i++){
             int ele = read.nextInt();
@@ -74,6 +75,7 @@ class btiua{
                     break;
                 // switch breaks when other number is enterred except the provided case numbers
                 default:
+                    read.close();
                     System.exit(0);
             }
         }
