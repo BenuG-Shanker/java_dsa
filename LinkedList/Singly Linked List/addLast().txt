@@ -1,5 +1,6 @@
 public void addLast(int data){
-	Node new_Node = new Node();
+	Node new_Node = new Node(data);
+	size++;
 	if(head == null){
 		head = tail = new_Node;
 		return;
