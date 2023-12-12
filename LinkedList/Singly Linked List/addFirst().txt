@@ -1,0 +1,10 @@
+public void addFirst(int data){
+	Node new_Node = new Node();
+	size++;
+	if(head == null){
+		head = tail = new_Node;
+		return;
+	}
+	new_Node.next = head;
+	head = new_Node;
+}
