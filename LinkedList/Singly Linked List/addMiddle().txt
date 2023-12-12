@@ -1,0 +1,16 @@
+public void addMiddle(int index, int data){
+	if(index == 0){
+		addFirst(data);
+		return;
+	}
+	Node new_Node = new Node(data);
+	size++;
+	Node temp = head;
+	int i = 0;
+	while(i < index-1){
+		temp = temp.next;
+		i++;
+	}
+	new_Node.next = temp.next;
+	temp.next = new_Node;
+}
