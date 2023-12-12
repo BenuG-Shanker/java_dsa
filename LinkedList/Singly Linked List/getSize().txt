@@ -1,0 +1,9 @@
+public void size(){
+	int i = 0;
+	Node temp = head;
+	while(temp != null){
+		i++;
+		temp = temp.next;
+	}
+	System.out.println(i);
+}
