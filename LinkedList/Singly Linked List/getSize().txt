@@ -1,5 +1,9 @@
-public void size(){
+public void getSize(){
 	int i = 0;
+	if(head == null){
+		i = 0;
+		return;
+	}
 	Node temp = head;
 	while(temp != null){
 		i++;
