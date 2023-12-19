@@ -1,4 +1,4 @@
-public void removeFirst(){
+public int removeFirst(){
 	if(size == 0){
 		System.out.println("ll is empty");
 		return Integer.MIN_VALUE;
