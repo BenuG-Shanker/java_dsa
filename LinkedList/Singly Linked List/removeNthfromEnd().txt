@@ -13,5 +13,6 @@ public int removeNthfromEnd(int n){
 	}
 	int val = prev.next.data;
 	prev.next = prev.next.next;
+	size--;
 	return val;
 }
