@@ -1,0 +1,14 @@
+public void printHalfandReversedHalf(){
+	Node midNode = findMid(head);
+	Node originalHalf = head;
+	while(originalHalf != midNode){
+		System.out.print(originalHalf.data + "->");
+		originalHalf = originalHalf.next;
+	}
+	Node reversedHalf = reverseHalf(midNode);
+	while(reversedHalf != null){
+		System.out.print(reversedHalf.data + "->");
+		reversedHalf = reversedHalf.next;
+	}
+	System.out.println("null");
+}
