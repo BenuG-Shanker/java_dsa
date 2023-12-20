@@ -1,0 +1,12 @@
+public Node reverseHalf(Node midNode){
+	Node prev = null;
+	Node curr = midNode;
+	Node next;
+	while(curr != null){
+		next = curr.next;
+		curr.next = prev;
+		prev = curr;
+		curr = next;
+	}
+	return prev;
+}
