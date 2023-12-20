@@ -1,0 +1,17 @@
+public int removeNthfromEnd(int n){
+	if(n == size){
+		int val = head.data;
+		head = head.next;
+		retun val;
+	}
+	int i = 1;
+	int iToFind = size - n;
+	Node prev = head;
+	while(i < iToFind){
+		prev = prev.next;
+		i++;
+	}
+	int val = prev.next.data;
+	prev.next = prev.next.next;
+	return val;
+}
