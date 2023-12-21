@@ -1,0 +1,20 @@
+public Node getMid(Node head){
+	Node slow = head;
+	Node fast = head.next;
+	while(fast != null && fast.next != null){
+		slow = slow.next;
+		fast = fast.next.next;
+	}
+	return slow;
+}
+public Node mergeSort(Node head){
+	if(head == null || head.next == null){
+		return head;
+	}
+	Node mid = getMid(head);
+	Node rightHead = mid.next;
+	mid.next = null;
+	Node newLeft = mergeSort(head);
+	Node newRight = mergeSort(rightHead);
+	return merge(newLeft, newRight);
+}
