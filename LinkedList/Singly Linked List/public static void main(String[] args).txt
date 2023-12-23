@@ -42,4 +42,18 @@ public static void main(String[] args){
         ll.print();
         ll.zigZag();
 	ll.print();
+	Node head1 = new Node(10);
+        Node head2 = new Node(3);
+        Node new_Node = new Node(6);
+        head2.next = new_Node;
+        new_Node = new Node(9);
+        head2.next.next = new_Node;
+        new_Node = new Node(15);
+        head2.next.next.next = new_Node;
+        head1.next = new_Node;
+        new_Node = new Node(30);
+        head1.next.next = new_Node;
+        head1.next.next.next = null;
+        Node intersectionPoint = ll.getIntersectionNode(head1, head2);
+        System.out.println((intersectionPoint==null)?"no intersection point":intersectionPoint.data);
 }
