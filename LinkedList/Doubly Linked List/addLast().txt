@@ -1,0 +1,11 @@
+public void addLast(int data){
+	Node new_Node = new Node(data);
+	size++;
+	if(head == null){
+		head = tail = new_Node;
+		return;
+	}
+	tail.next = new_Node;
+	new_Node.prev = tail;
+	tail = new_Node;
+}
