@@ -1,0 +1,9 @@
+public void printReversedHalf(){
+	Node midNode = findMid(head);
+	Node reversedHead = reverseHalf(midNode);
+	while(reversedHead != null){
+		System.out.print(reversedHead.data + "->");
+		reversedHead = reversedHead.next;
+	}
+	System.out.println("null");
+}
