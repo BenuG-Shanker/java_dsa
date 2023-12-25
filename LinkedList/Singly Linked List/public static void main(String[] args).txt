@@ -23,6 +23,7 @@ public static void main(String[] args){
         System.out.println(ll.removeNthfromEnd(2));
         ll.print();
         ll.findMidPoint();
+	ll.printReversedHalf();
         System.out.println(ll.checkPalindrome());
         ll.printHalfandReversedHalf();
         head = new Node(1);
