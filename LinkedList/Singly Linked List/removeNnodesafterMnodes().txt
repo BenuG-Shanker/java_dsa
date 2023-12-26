@@ -1,0 +1,17 @@
+public void removeNnodesafterMnodes(int m, int n){
+	Node temp = head;
+	while(temp != null){
+		for(int i=0; i<m-1&&temp!=null; i++){
+			temp = temp.next;
+		}
+		if(temp == null){
+			return;
+		}
+		Node prev = temp.next;
+		for(int i=0; i<n&&prev!=null; i++){
+			prev = prev.next;
+		}
+		temp.next = prev;
+		temp = prev;
+	}
+}
