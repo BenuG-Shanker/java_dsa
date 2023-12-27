@@ -60,4 +60,6 @@ public static void main(String[] args){
 	ll.print();
 	ll.removeNnodesafterMnodes(3, 2);
 	ll.print();
+	ll.swapNodes(2, 4);
+	ll.print();
 }
