@@ -1,0 +1,35 @@
+public void swapNodes(int n, int m){
+	if(n == m){
+		return;
+	}
+	Node prev1 = null;
+	Node temp1 = head;
+	Node prev2 = null;
+	Node temp2 = head;
+	while(temp1 != null && temp1.data != n){
+		prev1 = temp1;
+		temp1 = temp1.next;
+	}
+	while(temp2 != null && temp2.data != m){
+		prev2 = temp2;
+		temp2 = temp2.next;
+	}
+	if(temp1 == null || temp2 == null){
+		return;
+	}
+	if(prev1 != null){
+		prev1.next = temp2;
+	}
+	else{
+		head = temp2;
+	}
+	if(prev2 != null){
+		prev2.next = temp1;
+	}
+	else{
+		head = temp1;
+	}
+	Node temp = temp1.next;
+	temp1.next = temp2.next;
+	temp2.next = temp;
+}
