@@ -399,6 +399,49 @@ public class Main{
 		temp1.next = temp2.next;
 		temp2.next = temp;
 	}
+	public void OddEven(){
+		if(head == null || head.next == null){
+			return;
+		}
+		Node evenHead = null;
+		Node evenTail = null;
+		Node oddHead = null;
+		Node oddTail = null;
+		Node temp = head;
+		while(temp != null){
+			if(temp.data%2==0){
+				if(evenHead == null){
+					evenHead = temp;
+					evenTail = temp;
+				}
+				else{
+					evenTail.next = temp;
+					evenTail = temp;
+				}
+			}
+			else{
+				if(oddHead == null){
+					oddHead = temp;
+					oddTail = temp;
+				}
+				else{
+					oddTail.next = temp;
+					oddTail = temp;
+				}
+			}
+			temp = temp.next;
+		}
+		if(evenHead != null){
+			head = evenHead;
+			evenTail.next = oddHead;
+		}
+		else{
+			head = oddHead;
+		}
+		if(oddHead != null){
+			oddTail.next = null;
+		}
+	}
 	public static void main(String[] args){
 	        Main ll = new Main();
 	        ll.addFirst(2);
@@ -461,6 +504,8 @@ public class Main{
 		ll.removeNnodesafterMnodes(3, 2);
 		ll.print();
 		ll.swapNodes(2, 4);
+		ll.print();
+		ll.OddEven();
 		ll.print();
 	}
 }
