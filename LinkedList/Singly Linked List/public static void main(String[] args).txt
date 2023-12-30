@@ -62,4 +62,6 @@ public static void main(String[] args){
 	ll.print();
 	ll.swapNodes(2, 4);
 	ll.print();
+	ll.OddEven();
+	ll.print();
 }
