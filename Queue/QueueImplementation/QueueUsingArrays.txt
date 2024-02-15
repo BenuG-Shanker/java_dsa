@@ -16,7 +16,7 @@ public class Main{
 				System.out.println("queue is full");
 				return;
 			}
-			rear++;
+			rear++
 			arr[rear] = data;
 		}
 		public static int remove(){
