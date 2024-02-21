@@ -1,0 +1,11 @@
+import java.util.*;
+public class Main{
+	public static void main(String[] args){
+		PriorityQueue<Integer> maxpq = new PriorityQueue<>(Collections.reverseOrder());
+		maxpq.add(4);
+		maxpq.add(3);
+		maxpq.add(2);
+		maxpq.add(6);
+		System.out.println(maxpq);
+	}
+}
