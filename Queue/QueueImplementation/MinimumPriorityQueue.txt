@@ -1,0 +1,11 @@
+import java.util.*;
+public class Main{
+	public static void main(String[] args){
+		PriorityQueue<Integer> minpq = new PriorityQueue<>();
+		minpq.add(4);
+		minpq.add(3);
+		minpq.add(2);
+		minpq.add(6);
+		System.out.println(minpq);
+	}
+}
