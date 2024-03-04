@@ -1,0 +1,21 @@
+import java.util.*;
+public class Main{
+	public static void main(String[] args){
+		String str = "LLRRRLLRRL";
+		int r = 0;
+		int l = 0;
+		int ans = 0;
+		for(int i=0; i<str.length(); i++){
+			if(str.charAt(i)=='L'){
+				l++;
+			}
+			else{
+				r++;
+			}
+			if(l==r){
+				ans++;
+			}
+		}
+		System.out.println("maximum balanced string partitions : " + ans);
+	}
+}
