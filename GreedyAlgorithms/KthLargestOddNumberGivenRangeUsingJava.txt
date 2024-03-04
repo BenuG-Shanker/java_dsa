@@ -1,0 +1,31 @@
+import java.util.*;
+public class Main{
+	public static void main(String[] args){
+		int l = -10;
+		int r = 10;
+		int k = 8;
+		int num = 0;
+		if(k<=0){
+			num=0;
+		}
+		else if((r&1)>0){
+			int count = (int)Math.ceil((r-l+1)/2);
+			if(k>count){
+				num = 0;
+			}
+			else{
+				num = r-(2*k)+2;
+			}
+		}
+		else{
+			int count = (r-l+1)/2;
+			if(k>count){
+				num = 0;
+			}
+			else{
+				num = r-(2*k)+1;
+			}
+		}
+		System.out.println("number is : " + num);
+	}
+}
