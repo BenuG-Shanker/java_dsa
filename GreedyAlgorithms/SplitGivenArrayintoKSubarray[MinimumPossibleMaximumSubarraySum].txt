@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main{
+	public static int ans = 10000000;
+	public static void solve(int[] arr, int n, int k, int index, int sum, int maxSum){
+		if(k==1){
+			maxSum = Math.max(maxSum, sum);
+			sum = 0;
+			for(int i=index; i<n; i++){
+				sum = sum + arr[i];
+			}
+			maxSum = Math.max(maxSum, sum);
+			ans = Math.min(ans, maxSum);
+			return;
+		}
+		sum = 0;
+		for(int i=index; i<n; i++){
+			sum = sum + arr[i];
+			maxSum = Math.max(maxSum, sum);
+			solve(arr, n, k-1, i+1, sum, maxSum);
+		}
+	}
+	public static void main(String[] args){
+		int[] arr = {1, 2, 3, 4};
+		int k = 3;
+		solve(arr, arr.length, k, 0, 0, 0);
+		System.out.println(ans);
+	}
+}
