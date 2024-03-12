@@ -2,6 +2,7 @@
 package LinkedList;
 import java.util.Scanner;
 class dcll{
+    private Scanner read;   // making the read as global object for the main
     static class Node{
         int data;
         Node next;
@@ -12,10 +13,12 @@ class dcll{
             this.prev = null;
         }
     }
+    dcll(){
+        read = new Scanner(System.in); // creating the instance of the read in the main method constructor
+    }
     Node head = null;
     Node tail = null;
     public void create(){
-        Scanner read = new Scanner(System.in);
         System.out.print("Data : ");
         int data = read.nextInt();
         Node new_node = new Node(data);
@@ -29,7 +32,6 @@ class dcll{
         }
     }
     public void insert(){
-        Scanner read = new Scanner(System.in);
         int n, m, p, data;
         do{
             System.out.print("Data : ");
@@ -76,7 +78,6 @@ class dcll{
         while(n==1);
     }
     public void delete(){
-        Scanner read = new Scanner(System.in);
         int n, m, p;
         do{
             if(head == null){

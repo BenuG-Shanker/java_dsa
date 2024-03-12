@@ -2,6 +2,7 @@
 package LinkedList;
 import java.util.*;
 class dll{
+    private Scanner read;   // making the read as global object for the main
     static class Node{
         int data;
         Node next;
@@ -12,10 +13,12 @@ class dll{
             this.prev = null;
         }
     }
+    dll(){
+        read = new Scanner(System.in); // creating the instance of the read in the main method constructor
+    }
     Node head = null;
     Node tail = null;
     public void create(){
-        Scanner read = new Scanner(System.in);
         System.out.print("Data : ");
         int data = read.nextInt();
         Node new_node = new Node(data);
@@ -25,7 +28,6 @@ class dll{
         }
     }
     public void insert(){
-        Scanner read = new Scanner(System.in);
         int n, m, p, data;
         do{
             System.out.print("Data : ");
@@ -67,7 +69,6 @@ class dll{
         while(n==1);
     }
     public void delete(){
-        Scanner read = new Scanner(System.in);
         int n, m, p;
         do{
             if(head == null){
@@ -81,8 +82,8 @@ class dll{
                     case 1:
                         Node temp = head;
                         temp = temp.next;
-                        head.next = null;
                         head = temp;
+                        head.prev.next = null;
                         head.prev = null;
                         break;
                     // deletion in any position
