@@ -9,7 +9,7 @@ public class Main{
 			this.right = null;
 		}
 	}
-	public static int height(Node root){
+	public static int heightNode(Node root){
 		if(root==null){
 			return 0;
 		}
@@ -25,6 +25,6 @@ public class Main{
 		root.left.right = new Node(5);
 		root.right.left = new Node(6);
 		root.right.right = new Node(7);
-		System.out.println(height(root));
+		System.out.println(heightNode(root));
 	}
 }
