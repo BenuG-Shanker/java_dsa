@@ -1,0 +1,63 @@
+public class Main{
+	public static class Node{
+		int data;
+		Node left;
+		Node right;
+		public Node(int data){
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+	}
+	public static Node lowestCommonAncestor(Node root, int n1, int n2){
+		if(root==null || root.data==n1 || root.data==n2){
+			return root;
+		}
+		Node lowestcommonancestorLeftNode = lowestCommonAncestor(root.left, n1, n2);
+		Node lowestcommonancestorRightNode = lowestCommonAncestor(root.right, n1, n2);
+		if(lowestcommonancestorLeftNode==null){
+			return lowestcommonancestorRightNode;
+		}
+		if(lowestcommonancestorRightNode==null){
+			return lowestcommonancestorLeftNode;
+		}
+		return root;
+	}
+	public static int lowestCommonAncestorDistance(Node root, int n){
+		if(root==null){
+			return -1;
+		}
+		if(root.data==n){
+			return 0;
+		}
+		int lowestcommonancestorLeftDistance = lowestCommonAncestorDistance(root.left, n);
+		int lowestcommonancestorRightDistance = lowestCommonAncestorDistance(root.right, n);
+		if(lowestcommonancestorLeftDistance==-1 && lowestcommonancestorRightDistance==-1){
+			return -1;
+		}
+		else if(lowestcommonancestorLeftDistance==-1){
+			return lowestcommonancestorRightDistance + 1;
+		}
+		else{
+			return lowestcommonancestorLeftDistance +1;
+		}
+	}
+	public static int minimumDistanceTwoNodes(Node root, int n1, int n2){
+		Node lca = lowestCommonAncestor(root, n1, n2);
+		int distancePath1 = lowestCommonAncestorDistance(lca, n1);
+		int distancePath2 = lowestCommonAncestorDistance(lca, n2);
+		return distancePath1 + distancePath2;
+	}
+	public static void main(String[] args){
+		Node root = new Node(1);
+		root.left = new Node(2);
+		root.right = new Node(3);
+		root.left.left = new Node(4);
+		root.left.right = new Node(5);
+		root.right.left = new Node(6);
+		root.right.right = new Node(7);
+		int n1 = 4;
+		int n2 = 6;
+		System.out.println(minimumDistanceTwoNodes(root, n1, n2));
+	}
+}
