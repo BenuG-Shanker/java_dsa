@@ -1,0 +1,48 @@
+import java.util.*;
+public class Main{
+	public static HashMap<String, Integer> map;
+	public static class Node{
+		int data;
+		Node left;
+		Node right;
+		public Node(int data){
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+	}
+	public static String inOrder(Node root){
+		if(root==null){
+			return "";
+		}
+		String str = "(";
+		str = str + inOrder(root.left);
+		str = str + Integer.toString(root.data);
+		str = str + inOrder(root.right);
+		str = str + ")";
+		if(map.get(str)!=null && map.get(str)==1){
+			System.out.print(root.data + " ");
+		}
+		if(map.containsKey(str)){
+			map.put(str, map.get(str)+1);
+		}
+		else{
+			map.put(str, 1);
+		}
+		return str;
+	}
+	public static void duplicateSubtree(Node root){
+		map = new HashMap<>();
+		inOrder(root);
+	}
+	public static void main(String[] args){
+		Node root = new Node(1);
+		root.left = new Node(2);
+		root.right = new Node(4);
+		root.left.left = new Node(4);
+		root.right.left = new Node(2);
+		root.right.left.left = new Node(4);
+		root.right.right = new Node(4);
+		duplicateSubtree(root);
+	}
+}
