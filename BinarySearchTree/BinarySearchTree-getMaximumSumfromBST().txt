@@ -1,0 +1,59 @@
+public class Main{
+	public static class Node{
+		int data;
+		Node left;
+		Node right;
+		public Node(int data){
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+	}
+	public static class Info{
+		boolean isBST;
+		int max;
+		int min;
+		int sum;
+		public Info(boolean isBST, int max, int min, int sum){
+			this.isBST = isBST;
+			this.max = max;
+			this.min = min;
+			this.sum = sum;
+		}
+		public Info(){};
+	}
+	public static int max_sum = 0;
+	public static Info getMaximumSumfromBST(Node root){
+		if(root == null){
+			return new Info(true, Integer.MIN_VALUE, Integer.MAX_VALUE, 0);
+		}
+		if(root.left==null && root.right==null){
+			max_sum = Math.max(max_sum, root.data);
+			return new Info(true, root.data, root.data, root.data);
+		}
+		Info leftSubtree = getMaximumSumfromBST(root.left);
+		Info rightSubtree = getMaximumSumfromBST(root.right);
+		Info BST = new Info();
+		if(leftSubtree.isBST&&rightSubtree.isBST && leftSubtree.max<root.data&&rightSubtree.min>root.data){
+			BST.isBST = true;
+			BST.max = Math.max(root.data, Math.max(leftSubtree.max, rightSubtree.max));
+			BST.min = Math.min(root.data, Math.min(leftSubtree.min, rightSubtree.min));
+			BST.sum = leftSubtree.sum + root.data + rightSubtree.sum;
+			max_sum = Math.max(max_sum, BST.sum);
+			return BST;
+		}
+		BST.isBST = false;
+		BST.sum = leftSubtree.sum + root.data + rightSubtree.sum;
+		return BST;
+	}
+	public static void main(String[] args){
+		Node root = new Node(5);
+		root.left = new Node(14);
+		root.right = new Node(3);
+		root.left.left = new Node(6);
+		root.right.right = new Node(7);
+		root.left.left.left = new Node(9);
+		getMaximumSumfromBST(root);
+		System.out.println(max_sum);
+	}
+}
