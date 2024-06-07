@@ -1,0 +1,14 @@
+import java.util.*;
+public class Main{
+	public static void main(String[] args){
+		PriorityQueue<Integer> asc_pq = new PriorityQueue<>();
+		asc_pq.add(3);
+		asc_pq.add(4);
+		asc_pq.add(1);
+		asc_pq.add(7);
+		while(! asc_pq.isEmpty()){
+			System.out.println(asc_pq.peek());
+			asc_pq.remove();
+		}
+	}
+}
