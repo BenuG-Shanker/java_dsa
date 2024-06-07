@@ -1,0 +1,14 @@
+import java.util.*;
+public class Main{
+	public static void main(String[] args){
+		PriorityQueue<Integer> des_pq = new PriorityQueue<>(Comparator.reverseOrder());
+		des_pq.add(3);
+		des_pq.add(4);
+		des_pq.add(1);
+		des_pq.add(7);
+		while(! des_pq.isEmpty()){
+			System.out.println(des_pq.peek());
+			des_pq.remove();
+		}
+	}
+}
