@@ -1,0 +1,50 @@
+import java.util.PriorityQueue;
+import java.util.Comparator;
+public class Main{
+	public static int MinimumCostPath(int[][] grid, int n, int[][] cost){
+		PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+		cost[0][0] = grid[0][0];
+		pq.add(new int[]{grid[0][0], 0, 0});
+		int[] dx = {0, 0, -1, 1};
+		int[] dy = {-1, 1, 0, 0};
+		while(!pq.isEmpty()){
+			int[] curr = pq.poll();
+			int currCost = curr[0];
+			int x = curr[1];
+			int y = curr[2];
+			if(x==(n-1) && y==(n-1)){
+				return currCost;
+			}
+			for(int i=0; i<4; i++){
+				int nx = x + dx[i];
+				int ny = y + dy[i];
+				if(nx>=0 && ny>=0 && nx<n && ny<n){
+					int newCost = currCost + grid[nx][ny];
+					if(newCost < cost[nx][ny]){
+						cost[nx][ny] = newCost;
+						pq.add(new int[]{newCost, nx, ny});
+					}
+				}
+			}
+		}
+		return cost[n-1][n-1];
+	}
+	public static void main(String[] args){
+		int[][] grid = {
+			{31, 100, 65, 12, 18},
+			{10, 13, 47, 157, 6},
+			{100, 113, 174, 11, 33},
+			{88, 124, 41, 20, 140},
+			{99, 32, 111, 41, 20}
+		};
+		int n = grid.length;
+		int[][] cost = new int[n][n];
+		for(int i=0; i<n; i++){
+			for(int j=0; j<n; j++){
+				cost[i][j] = Integer.MAX_VALUE;
+			}
+		}
+		cost[0][0] = grid[0][0];
+		System.out.println("Minimum Cost : " + MinimumCostPath(grid, n, cost));
+	}
+}
