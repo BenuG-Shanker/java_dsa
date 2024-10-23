@@ -1,0 +1,27 @@
+import java.util.*;
+public class Main{
+	public static int minimumOperations(ArrayList<Integer> arr, double sum){
+		PriorityQueue<Double> pq = new PriorityQueue<>(Collections.reverseOrder());
+		for(int i=0; i<arr.size(); i++){
+			pq.add((double) arr.get(i));
+		}
+		double currentSum = sum;
+		int count = 0;
+		while(currentSum > (sum / 2)){
+			double largest = pq.poll();
+			double halved = (largest / 2);
+			currentSum = currentSum - halved;
+			pq.add(halved);
+			count++;
+		}
+		return count;
+	}
+	public static void main(String[] args){
+		ArrayList<Integer> arr = new ArrayList<>(List.of(4, 6, 3, 9, 10, 2));
+		double sum = 0;
+		for(int i=0; i<arr.size(); i++){
+			sum = sum + arr.get(i);
+		}
+		System.out.println(minimumOperations(arr, sum));
+	}
+}
