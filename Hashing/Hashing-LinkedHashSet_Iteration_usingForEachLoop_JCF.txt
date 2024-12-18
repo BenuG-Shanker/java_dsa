@@ -1,0 +1,13 @@
+import java.util.*;
+public class Main{
+	public static void main(String[] args){
+		LinkedHashSet<String> cities = new LinkedHashSet<>();
+		cities.add("Dehli");
+		cities.add("Mumbai");
+		cities.add("Noida");
+		cities.add("Bengaluru");
+		for(String city : cities){
+			System.out.println(city);
+		}
+	}
+}
